@@ -1,29 +1,29 @@
-/* 0. El Reset */
+/* --- 0. El Reset --- */
 * {
-    box-sizing: border-box; /* Evita que el padding "infle" las cajas y rompa el ancho */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #0a0a23;
+    background-color: #0a0a23; /* Tu azul marino base */
     color: white;
-    margin: 0;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
 }
 
-/* 1. Sección "página"  */
+/* --- 1. Secciones y Títulos --- */
 .paginas {
-    padding: 3rem 5%; /* 5% de espacio a los lados */
+    padding: 3rem 5%;
     text-align: center;
 }
 
 h1 {
     color: white;
-    font-size: clamp(1.8rem, 10vw, 2.5rem); /* Se ajusta solo según el tamaño de pantalla */
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
-/* 2. Título de Ramas */
 .ramas h2 {
     text-align: center;
     max-width: 800px;
@@ -32,65 +32,7 @@ h1 {
     font-size: clamp(1.4rem, 5vw, 2rem);
 }
 
-/* 3. Contenedor de las tarjetas */
-.flex-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 1rem;
-    width: 100%;
-}
-
-/* 4. Estilo de cada Tarjeta */
-.tarjeta {
-    display: flex;
-    flex-direction: column;
-    width: 95%;        /* Casi todo el ancho en móvil */
-    max-width: 800px;  /* Pero no se estira de más en PC */
-    background-color: #161b22;
-    padding: 1.5rem;
-    border-left: 5px solid #1f6feb;
-    border-radius: 4px;
-    
-    /* Sombras y bordes  */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    
-    transition: all 0.3s ease;
-    color: #c9d1d9;
-}
-
-.tarjeta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-    background-color: #1c2128;
-}
-
-/* 5. Cabecera (Icono + Título) */
-.cabecera-tarjeta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.8rem;
-}
-
-.cabecera-tarjeta i {
-    font-size: 1.5rem;
-    min-width: 35px;
-    text-align: center;
-}
-
-.cabecera-tarjeta h3 {
-    margin: 0;
-    color: white;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-}
-
-/* 6. Footer */
+/* --- 2. Footer (Pie de página) --- */
 footer {
     background-color: #0d1117;
     padding: 3rem 1rem;
@@ -108,4 +50,64 @@ footer {
     color: #8b949e;
     font-size: 0.9rem;
     margin: 0 0 1.2rem 0;
+}
+
+.inline-image img {
+    width: 100%;
+    height: 180px; /* Una altura controlada y sutil */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ============================================================
+   BARRA DE NAVEGACIÓN (Navbar Modular)
+   ============================================================ */
+.main-nav {
+    background-color: #0d1117;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky; /* Hace que el menú baje contigo al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fcfcfc;
+}
+
+.logo span { color: #A7C7E7; } /* Punto rojo de acento */
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: #0000a0; }
+
+/* Menú responsivo para celulares */
+@media (max-width: 900px) {
+    .nav-container { flex-direction: column; gap: 1rem; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
 }
