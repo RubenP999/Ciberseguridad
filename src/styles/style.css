@@ -1,0 +1,241 @@
+/* --- 0. El Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0a0a23; /* Tu azul marino base */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* --- 1. Secciones y Títulos --- */
+.paginas {
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.ramas h2 {
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto 0.5rem auto;
+    padding: 1rem;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+}
+
+/* --- 2. Footer (Pie de página) --- */
+footer {
+    background-color: #0d1117;
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-content p {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin: 0 0 1.2rem 0;
+}
+
+.inline-image img {
+    width: 100%;
+    height: 180px; /* Una altura controlada y sutil */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ============================================================
+   BARRA DE NAVEGACIÓN (Navbar Modular y Moderna)
+   ============================================================ */
+.main-nav {
+    background-color: rgba(13, 17, 23, 0.85); /* Fondo original con ligera transparencia */
+    backdrop-filter: blur(12px); /* Efecto cristal para quitar lo plano */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Sombra suave para dar profundidad */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fcfcfc;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Pequeño salto al pasar el cursor */
+}
+
+.logo span { color: #A7C7E7; }
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    position: relative; /* Necesario para la animación del borde */
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+/* Animación de subrayado moderno en hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #0000a0; /* Tu color de acento */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover { 
+    color: #0000a0; 
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- Botón Hamburguesa --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1001; /* Siempre por encima del menú lateral */
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #c9d1d9;
+    transition: all 0.4s ease;
+    border-radius: 2px;
+}
+
+/* Transformación del ícono a "X" cuando está abierto */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Menú responsivo (Tablets y Celulares) --- */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Oculto fuera de la pantalla por defecto */
+        height: 100vh;
+        width: 280px;
+        background-color: rgba(13, 17, 23, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        /* Curva bezier para un deslizamiento más natural */
+        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); 
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        right: 0; /* Desliza hacia adentro */
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================================
+   PANTALLA DE CARGA (Google Style)
+   ============================================================ */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Lo centra en la pantalla dejando espacio para el navbar */
+    gap: 12px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #A7C7E7; /* Tu azul claro del logo */
+    animation: bounce 0.5s infinite alternate;
+}
+
+/* Retrasamos la animación de cada punto para crear el efecto de ola */
+.dot:nth-child(2) {
+    background-color: #0000a0; /* Tu azul oscuro */
+    animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+    background-color: #fcfcfc; /* Blanco */
+    animation-delay: 0.3s;
+}
+
+/* La animación clave que los hace subir y bajar */
+@keyframes bounce {
+    from { 
+        transform: translateY(0); 
+        opacity: 0.8;
+    }
+    to { 
+        transform: translateY(-20px); 
+        opacity: 1;
+    }
+}
