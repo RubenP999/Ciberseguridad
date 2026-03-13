@@ -16,7 +16,7 @@ Nuestro desarrollo siguió una metodología iterativa para asegurar la escalabil
 * **Fase 2 (Escalabilidad):** Migración estratégica a **React**. Esta transición nos permitió implementar una arquitectura basada en componentes, optimizando el rendimiento de la plataforma y mejorando drásticamente la fluidez de la experiencia del usuario.
 
 ## ⏱️ Proceso de Desarrollo
-El ciclo de vida del producto se completó en un sprint intensivo de **3 semanas**. Este proceso abarcó desde el diseño de la interfaz y la programación de componentes, hasta las pruebas de estrés, corrección de bugs y el despliegue final en producción.
+El ciclo de vida del producto se completó en un sprint intensivo de **2 semanas**. Este proceso abarcó desde el diseño de la interfaz y la programación de componentes, hasta las pruebas de estrés, corrección de bugs y el despliegue final en producción.
 
 ## 👥 El Equipo (Startup Core Team)
 Este proyecto es el resultado de la colaboración de nuestro equipo fundador, donde cada miembro asumió roles críticos para el éxito del despliegue:
