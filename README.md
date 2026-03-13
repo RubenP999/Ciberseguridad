@@ -29,4 +29,3 @@ Este proyecto es el resultado de la colaboración de nuestro equipo fundador, do
 
 ## ⚠️ Aviso Legal / Disclaimer
 Esta página web y su repositorio han sido creados exclusivamente con **fines educativos**. Todo el contenido, código y estructura son parte de un proyecto desarrollado por los alumnos mencionados para el aprendizaje de tecnologías de desarrollo web y divulgación de ciberseguridad.
-Esta página web y su repositorio han sido creados exclusivamente con **fines educativos**. Todo el contenido, código y estructura son parte de un proyecto desarrollado por los alumnos mencionados para el aprendizaje de tecnologías de desarrollo web y divulgación de ciberseguridad.
